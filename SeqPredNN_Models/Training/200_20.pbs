@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=8:mem=64GB:ngpus=1:Qlist=ee
+#PBS -N 200_20
+#PBS -e over_train.err
+#PBS -o over_train.out
+#PBS -M 22042636@sun.ac.za
+#PBS -m abe
+
+cd $PBS_O_WORKDIR
+
+features="/home/22042636/hons_project_2023/SeqPredNN/features"
+output="/home/22042636/hons_project_2023/SeqPredNN/models/oversamples/200_20"
+training_file="/home/22042636/hons_project_2023/SeqPredNN/train_model_oversamp.py"
+test_set="/home/22042636/hons_project_2023/SeqPredNN/test_sets/test_set_20.txt"
+validation_set="/home/22042636/hons_project_2023/SeqPredNN/validation_sets/oversamples/validation_set_25.npz"
+
+module load app/Miniconda
+conda activate SeqPredNN
+python "$training_file" -o "$output" -v "$validation_set" -t "$test_set" -e 200 "$features" oversample
+

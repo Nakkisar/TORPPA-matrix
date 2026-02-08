@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Set the source directory
+source_dir="features"
+
+# Create a temporary file to store the selected filenames
+temp_file=$(mktemp)
+
+# Find all files in the source directory ending with ".npz"
+find "$source_dir" -type f -name "*.npz" > "$temp_file"
+
+# Count the total number of files
+total_files=$(cat "$temp_file" | wc -l)
+
+# Calculate the number of files to copy (20% of total)
+num_to_copy=$((total_files / 5))
+
+# Randomly select the files to copy
+selected_files=$(shuf -n "$num_to_copy" "$temp_file")
+
+# Create a directory to store the copied files
+output_dir="test_sets/test_set_20"
+mkdir -p "$output_dir"
+
+# Copy the selected files to the output directory
+while IFS= read -r file; do
+  cp "$file" "$output_dir"
+done <<< "$selected_files"
+
+# Create a text file containing the stripped filenames
+stripped_file_list=$(echo "$selected_files" | sed 's/.*\///;s/.npz$//' > "$output_dir/test_set_20.txt")
+
+# Clean up the temporary file and output directory
+rm "$temp_file"
+cp test_sets/test_set_20/test_set_20.txt test_sets
+rm test_sets/test_set_20
+
+echo "Copied $num_to_copy files to $output_dir"
+

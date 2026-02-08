@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -l walltime=96:00:00
+#PBS -l select=1:ncpus=2:mem=2GB
+#PBS -N PDB_all_download
+#PBS -e PDB_all.err
+#PBS -o PDB_all.out
+#PBS -M 22042636@sun.ac.za
+#PBS -m abe
+
+wget ftp://ftp.wwpdb.org/pub/pdb/data/structures/all/pdb/*
+

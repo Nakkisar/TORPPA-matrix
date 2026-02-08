@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -l ncpus=2
+#PBS -l mem=4GB
+#PBS -l walltime=48:00:00
+#PBS -N JET_pdb_batch
+#PBS -e prog.err
+#PBS -o prog.out
+#PBS -q bix
+#PBS -M 22042636@sun.ac.za
+#PBS -m abe
+
+cd $PBS_O_WORKDIR
+
+./batch_download.sh -f PDB_id_list.txt -p -o PDB_structures
+
