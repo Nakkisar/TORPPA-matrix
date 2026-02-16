@@ -1,0 +1,6 @@
+query_id	rank	database_id	tm-score
+2CZQ_1|Chains	0	00103||Esterase||Pseudozyma_antarctica||PBS_PBSA_PCL	0.9666809
+2CZQ_1|Chains	1	00037||Cutinase||Cryptococcus_sp.||PBS_PCL_PHB_PLA_PHA	0.9341749
+2CZQ_1|Chains	2	00178||Hydrolase||Rhodococcus_fascians||PBAT_PBS_PBSA_PCL_PES	0.93093157
+2CZQ_1|Chains	3	00121||Cutinase||Humicola_insolens||PET	0.9178772
+2CZQ_1|Chains	4	00009||Cutinase||Fusarium_verticillioides||PCL	0.9169693

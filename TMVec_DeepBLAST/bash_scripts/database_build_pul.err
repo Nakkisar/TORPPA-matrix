@@ -1,0 +1,9 @@
+usage: build-fasta-index [-h] [--fasta FASTA] [--faidx FAIDX]
+build-fasta-index: error: unrecognized arguments: prots_300length.fasta prots_300length.fai
+usage: tmvec-build-database [-h] --input-fasta INPUT_FASTA --tm-vec-model
+                            TM_VEC_MODEL --tm-vec-config-path
+                            TM_VEC_CONFIG_PATH
+                            [--protrans-model PROTRANS_MODEL]
+                            [--device DEVICE] --output OUTPUT
+                            [--threads THREADS]
+tmvec-build-database: error: unrecognized arguments: prots_300length.fasta

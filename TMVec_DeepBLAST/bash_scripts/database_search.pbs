@@ -1,0 +1,23 @@
+#PBS -N database_search
+#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=24:mem=32GB
+#PBS -e database_search.err
+#PBS -o database_search.out
+#PBS -M 22042636@sun.ac.za
+#PBS -m abe
+
+cd $PBS_O_WORKDIR
+source ../tmvec/bin/activate
+
+tmvec-search \
+    --query /home/22042636/Masters/2025/TMVec_DeepBLAST/PlasticDB/fasta/pdb_2CZQ.fasta \
+    --tm-vec-model /home/22042636/Masters/2025/TMVec_DeepBLAST/models/tm_vec_swiss_model.ckpt \
+    --tm-vec-config /home/22042636/Masters/2025/TMVec_DeepBLAST/models/tm_vec_swiss_model_params.json \
+    --database /home/22042636/Masters/2025/TMVec_DeepBLAST/Databases/plastic_db_database/db.npy \
+    --metadata /home/22042636/Masters/2025/TMVec_DeepBLAST/Databases/plastic_db_database/meta.npy \
+    --database-fasta /home/22042636/Masters/2025/TMVec_DeepBLAST/PlasticDB/fasta/PlasticDB.fasta \
+    --device 'cpu' \
+    --output-format tabular \
+    --output /home/22042636/Masters/2025/TMVec_DeepBLAST/outputs/CLE1_PlasticDB.txt \
+    --output-embeddings /home/22042636/Masters/2025/TMVec_DeepBLAST/outputs/embeddings/CLE1_PlasticDB.npy
+

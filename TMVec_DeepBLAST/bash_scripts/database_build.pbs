@@ -1,0 +1,20 @@
+#PBS -N database_build
+#PBS -l walltime=18:00:00
+#PBS -l select=1:ncpus=4:mem=16GB
+#PBS -e database_build.err
+#PBS -o database_build.out
+#PBS -M 22042636@sun.ac.za
+#PBS -m abe
+
+cd $PBS_O_WORKDIR
+source ../tmvec/bin/activate
+
+tmvec-build-database \
+    --input-fasta PlasticDB/fasta/PlasticDB.fasta \
+    --tm-vec-model models/tm_vec_swiss_model.ckpt \
+    --tm-vec-config-path models/tm_vec_swiss_model_params.json \
+    --device 'cpu' \
+    --output Databases/plastic_db_database
+
+
+

@@ -1,0 +1,6 @@
+query_id	rank	database_id	tm-score
+2CZQ_1|Chains	0	2AXE:A	0.8799212
+2CZQ_1|Chains	1	1BS9:A	0.8799212
+2CZQ_1|Chains	2	1G66:A	0.8799212
+2CZQ_1|Chains	3	1QOZ:A	0.86838984
+2CZQ_1|Chains	4	1QOZ:B	0.86741316

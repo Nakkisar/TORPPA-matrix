@@ -1,0 +1,24 @@
+#!/bin/bash
+#PBS -N database_search_pul
+#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=24:mem=32GB
+#PBS -e /home/22042636/Masters/2025/TMVec_DeepBLAST/outputs/logs/database_search_pul.err
+#PBS -o /home/22042636/Masters/2025/TMVec_DeepBLAST/outputs/logs/database_search_pul.out
+#PBS -M 22042636@sun.ac.za
+#PBS -m abe
+#PBS -q bix
+
+source /home/22042636/Masters/2025/tmvec_hpc/bin/activate
+
+
+tmvec-search \
+    --query /home/22042636/Masters/2025/TMVec_DeepBLAST/PlasticDB/fasta/pdb_2CZQ.fasta \
+    --tm-vec-model /home/22042636/Masters/2025/TMVec_DeepBLAST/models/tm_vec_swiss_model.ckpt \
+    --tm-vec-config /home/22042636/Masters/2025/TMVec_DeepBLAST/models/tm_vec_swiss_model_params.json \
+    --database /home/22042636/Masters/2025/TMVec_DeepBLAST/Databases/Pulveraceae/db.npy \
+    --metadata /home/22042636/Masters/2025/TMVec_DeepBLAST/Databases/Pulveraceae/meta.npy \
+    --database-fasta /home/22042636/Masters/2025/TMVec_DeepBLAST/Pulveraceae/Pulveraceae_683_Hypothetical_prots_300length.fasta \
+    --device 'cpu' \
+    --output-format tabular \
+    --output /home/22042636/Masters/2025/TMVec_DeepBLAST/outputs/CLE1_Pulveraceae.txt \
+    --output-embeddings /home/22042636/Masters/2025/TMVec_DeepBLAST/outputs/embeddings/CLE1_Pulveraceae.npy

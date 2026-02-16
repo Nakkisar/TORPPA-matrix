@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -N database_build_Pulveraceae
+#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=24:mem=64GB:ngpus=1
+#PBS -e /home/22042636/Masters/2025/TMVec_DeepBLAST/outputs/logs/database_build_pul.err
+#PBS -o /home/22042636/Masters/2025/TMVec_DeepBLAST/outputs/logs/database_build_pul.out
+#PBS -M 22042636@sun.ac.za
+#PBS -m abe
+#PBS -q bix
+
+source /home/22042636/Masters/2025/tmvec/bin/activate
+
+build-fasta-index \
+    --fasta /home/22042636/Masters/2025/TMVec_DeepBLAST/Pulveraceae/Pulveraceae_683_Hypothetical_prots_300length.fasta \
+    --faidx /home/22042636/Masters/2025/TMVec_DeepBLAST/Pulveraceae/Pulveraceae_683_Hypothetical_prots_300length.fai
+
+tmvec-build-database \
+    --input-fasta /home/22042636/Masters/2025/TMVec_DeepBLAST/Pulveraceae/Pulveraceae_683_Hypothetical_prots_300length.fasta \
+    --tm-vec-model /home/22042636/Masters/2025/TMVec_DeepBLAST/models/tm_vec_swiss_model.ckpt \
+    --tm-vec-config-path /home/22042636/Masters/2025/TMVec_DeepBLAST/models/tm_vec_swiss_model_params.json \
+    --device 'gpu' \
+    --output /home/22042636/Masters/2025/TMVec_DeepBLAST/Databases/Pulveraceae

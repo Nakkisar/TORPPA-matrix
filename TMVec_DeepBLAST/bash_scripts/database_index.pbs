@@ -1,0 +1,14 @@
+#PBS -N database_index
+#PBS -l walltime=02:00:00
+#PBS -l select=1:ncpus=4:mem=16GB
+#PBS -e database_index.err
+#PBS -o database_index.out
+#PBS -M 22042636@sun.ac.za
+#PBS -m abe
+
+cd $PBS_O_WORKDIR
+source ../tmvec/bin/activate
+
+build-fasta-index \
+    --fasta PlasticDB/fasta/PlasticDB.fasta \
+    --faidx PlasticDB/fasta/PlasticDB.fai
