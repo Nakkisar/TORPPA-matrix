@@ -9,5 +9,7 @@ BLAST+ pdbaa searches were performed using the preformatted database available h
 
 TM-Vec code used in this study is available here: https://github.com/tymor22/tm-vec?tab=readme-ov-file
 
-GASS-Metal code used in this study is avvailable here: https://github.com/sandroizidoro/gassmetal-local
+GASS-Metal code used in this study is available here: https://github.com/sandroizidoro/gassmetal-local
 . GASS-Metal can also be used via their web server: https://gassmetal.unifei.edu.br/
+
+Any further information can be acquired by emailing me at jetorppa@gmail.com
